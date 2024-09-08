@@ -1,6 +1,6 @@
 document.getElementById('resumeform')?.addEventListener('submit', function(event) {
     event.preventDefault();
-
+    const imageInput = document.getElementById("profileImage") as HTMLInputElement;
     const nameElement = document.getElementById('name') as HTMLInputElement;
     const emailElement = document.getElementById("email") as HTMLInputElement;
     const contactElement = document.getElementById("contact") as HTMLInputElement;
@@ -13,19 +13,19 @@ document.getElementById('resumeform')?.addEventListener('submit', function(event
     const contact = contactElement.value;
     const education = educationElement.value;
     const skills=skillsElement.value
-    const image = imageElement.files && imageElement.files.length > 0 ? imageElement.files[0].name : 'No image uploaded';
+    const profileImageFIle=imageInput.files?.[0];
+const profileImageURL=profileImageFIle?URL.createObjectURL(profileImageFIle):"";
 
     // Correctly use the extracted values in the template string
     const resOutput = `
         <h2>Personal Information</h2>
+           ${profileImageURL ? `<img src=${profileImageURL} alt="profile picture" class="profileImage">` : ''}
         <p><strong>Name:</strong> <span id="edit-name" class="editable">${name}</span></p>
         <p><strong>Email:</strong> <span id="edit-email" class="editable">${email}</span></p>
         <p><strong>Contact:</strong><span id="edit-contact" class="editable"> ${contact}</span></p>
         <h2>Education</h2>
         <p><strong>Education:</strong><span id="edit-education" class="editable"> ${education}</span></p>
           <p><strong>Education:</strong> <span id="edit-skills" class="editable">${skills}</span></p>
-        <h2>Image</h2>
-        <p><strong>Image:</strong> ${image}</p>
     `
 
     const resumeOutputElement = document.getElementById("resumeOutput");
