@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Form</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+     
+        <div id="info">
+            <h1>Personal Information</h1>
+            <form id="resumeform">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+                
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required>
+                
+                <label for="contact">Contact</label>
+                <input type="text" name="contact" id="contact" required>
+                
+                <h1>Education</h1>
+                <textarea id="education" rows="4" required></textarea>
+                
+                <h1>Skills</h1>
+                <textarea id="skills" rows="4"></textarea>
+                
+                <h1>Image Upload</h1>
+                <input type="file" name="image" id="image">
+                
+                <button type="submit">Generate Resume </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="resumeOutput"></div>
+<script src="script.js"></script>
+</body>
+</html>
